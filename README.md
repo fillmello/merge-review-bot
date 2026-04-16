@@ -1,220 +1,98 @@
-# 🤖 merge-review-bot
+<p align="center">
+  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
+</p>
 
-An intelligent assistant that automatically analyzes pull requests before merging, identifying risks, summarizing changes, and suggesting improvements to help Tech Leads make faster and safer decisions about the code.
+[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
+[circleci-url]: https://circleci.com/gh/nestjs/nest
 
----
+  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
+    <p align="center">
+<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
+<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
+<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
+<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
+<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
+<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
+<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
+  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
+    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
+  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
+</p>
+  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
+  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
-## 🚀 Overview
+## Description
 
-`merge-review-bot` is designed to improve the code review process by providing automated insights directly inside pull requests.
+[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
-Instead of manually reviewing every detail, Tech Leads and developers receive:
-
-- Clear summaries of changes
-- Risk detection
-- Suggested improvements
-- Testing recommendations
-
-All powered by AI and integrated into your development workflow.
-
----
-
-## 🧠 Features
-
-- 📌 **Pull Request Summary**  
-  Automatically explains what changed in the PR.
-
-- ⚠️ **Risk Detection**  
-  Highlights potential issues such as:
-  - Missing validations
-  - Increased complexity
-  - Changes in critical areas
-
-- 🧪 **Test Suggestions**  
-  Recommends test cases based on code changes.
-
-- 💬 **Automated PR Comments**  
-  Posts analysis directly on the pull request.
-
-- 🔍 **Code Context Awareness**  
-  Understands the purpose of the changes, not just syntax.
-
----
-
-## 🏗️ Architecture
-
-Developer → GitHub PR  
-        ↓  
-GitHub Actions / Webhook  
-        ↓  
-Backend API  
-        ↓  
-AI Analysis  
-        ↓  
-Comment on PR  
-
----
-
-## ⚙️ Tech Stack
-
-- Backend: Python (FastAPI) or Node.js
-- Automation: GitHub Actions
-- AI Integration: OpenAI API (or similar)
-- Tunneling (dev): ngrok
-- Version Control: GitHub
-
----
-
-## 🔌 How It Works
-
-1. A developer opens or updates a Pull Request
-2. GitHub triggers a webhook
-3. The backend receives the event
-4. The PR diff is extracted
-5. The AI analyzes the changes
-6. A structured response is generated
-7. The bot posts a comment on the PR
-
----
-
-## 📦 Installation
-
-### 1. Clone the repository
+## Project setup
 
 ```bash
-git clone https://github.com/your-username/merge-review-bot.git
-cd merge-review-bot
+$ npm install
 ```
 
----
-
-### 2. Create a virtual environment (Python)
+## Compile and run the project
 
 ```bash
-python -m venv venv
-source venv/bin/activate  # macOS/Linux
-venv\Scripts\activate     # Windows
+# development
+$ npm run start
+
+# watch mode
+$ npm run start:dev
+
+# production mode
+$ npm run start:prod
 ```
 
----
-
-### 3. Install dependencies
+## Run tests
 
 ```bash
-pip install -r requirements.txt
+# unit tests
+$ npm run test
+
+# e2e tests
+$ npm run test:e2e
+
+# test coverage
+$ npm run test:cov
 ```
 
----
+## Deployment
 
-### 4. Configure environment variables
+When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
 
-Create a `.env` file:
-
-```
-OPENAI_API_KEY=your_api_key
-GITHUB_APP_ID=your_app_id
-GITHUB_PRIVATE_KEY=your_private_key
-WEBHOOK_SECRET=your_webhook_secret
-```
-
----
-
-## ▶️ Running the Project
-
-Start the backend:
+If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
 
 ```bash
-uvicorn main:app --reload
+$ npm install -g @nestjs/mau
+$ mau deploy
 ```
 
----
+With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
 
-## 🌐 Expose Local Server (Development)
+## Resources
 
-Run ngrok:
+Check out a few resources that may come in handy when working with NestJS:
 
-```bash
-ngrok http 8000
-```
+- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
+- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
+- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
+- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
+- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
+- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
+- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
+- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
 
-Copy the generated URL and set it as your webhook:
+## Support
 
-```
-https://your-ngrok-url/webhook
-```
+Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
 
----
+## Stay in touch
 
-## 🔗 GitHub App Setup
+- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
+- Website - [https://nestjs.com](https://nestjs.com/)
+- Twitter - [@nestframework](https://twitter.com/nestframework)
 
-Configure a GitHub App with:
+## License
 
-### Permissions:
-- Pull Requests: Read
-- Contents: Read
-- Issues: Write
-
-### Events:
-- Pull Request
-
----
-
-## 🧪 Example Output
-
-```
-Summary:
-This PR introduces JWT authentication for user login.
-
-Risks:
-- No validation for expired tokens
-- Missing error handling for invalid credentials
-
-Suggestions:
-- Add tests for invalid token scenarios
-- Validate token expiration
-```
-
----
-
-## 📊 Future Improvements
-
-- Dashboard with PR metrics
-- Historical analysis
-- Team insights (non-invasive)
-- Codebase-aware analysis
-- Multi-language support
-
----
-
-## ⚠️ Limitations
-
-- Large PRs may require chunking (token limits)
-- AI suggestions are not always perfect
-- Requires proper prompt tuning for best results
-
----
-
-## 🎯 Goal
-
-To assist — not replace — human code review by:
-
-> Helping teams focus attention where it matters most.
-
----
-
-## 📄 License
-
-MIT License
-
----
-
-## 👨‍💻 Author
-
-Your Name  
-GitHub: https://github.com/your-username
-
----
-
-## 💡 Final Note
-
-This project is a practical exploration of how AI can enhance developer workflows, focusing on real-world problems faced by engineering teams.
+Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
