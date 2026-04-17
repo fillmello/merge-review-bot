@@ -1,4 +1,5 @@
-import { Controller, Get, Post } from '@nestjs/common';
+import { Controller, Get, Post, Req, Headers, Body, HttpCode } from '@nestjs/common';
+import { Request } from 'express';
 import { AppService } from './app.service';
 
 @Controller()
@@ -9,9 +10,11 @@ export class AppController {
   getHello(): string {
     return this.appService.getHello();
   }
-
-  @Post("/pullRequest")
-  postRequest() : string {
-    return this.appService.postRequest();
+  @Post('/webhook')
+  @HttpCode(200)
+  async webhook(@Req() req: Request & { rawBody?: Buffer }, @Headers() headers: Record<string, any>, @Body() _body: any) {
+    const raw = req.rawBody ?? null;
+    const result = await this.appService.handleWebhook(raw, headers);
+    return result;
   }
 }
